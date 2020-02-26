@@ -12,3 +12,7 @@ test('abcd ef!! should return bcde fg!! (Minding punctuation)', () => {
 test('Abcd Ee should return Bcde Ff (Minding case)', () => {
   expect(ceasar.cipher('Abcd Ee')).toBe('Bcde Ff');
 });
+
+test('abcdefghijklmnopqrstuvwxyz should return bcdefghijklmnopqrstuvwxyza (Can Wrap)', () => {
+  expect(ceasar.cipher('abcdefghijklmnopqrstuvwxyz')).toBe('bcdefghijklmnopqrstuvwxyza');
+});

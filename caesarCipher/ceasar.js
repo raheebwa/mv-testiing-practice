@@ -10,11 +10,19 @@ const ceasar = {
     str = str.split('');
     str.forEach((val, ind) => {
       if (str[ind].match(/[a-z]/)) {
-        val = val.toLowerCase();
-        str[ind] = refLower[shift + ceasar.getIndex(refLower, val)];
+        if (str[ind] === 'z') {
+          str[ind] = refLower[ceasar.getIndex(refLower, 'a')];
+        } else {
+          val = val.toLowerCase();
+          str[ind] = refLower[shift + ceasar.getIndex(refLower, val)];
+        }
       } else if (str[ind].match(/[A-Z]/)) {
-        val = val.toUpperCase();
-        str[ind] = refUpper[shift + ceasar.getIndex(refUpper, val)];
+        if (str[ind] === 'Z') {
+          str[ind] = refUpper[ceasar.getIndex(refUpper, 'A')];
+        } else {
+          val = val.toUpperCase();
+          str[ind] = refUpper[shift + ceasar.getIndex(refUpper, val)];
+        }
       }
       ciphered.push(str[ind]);
     });
