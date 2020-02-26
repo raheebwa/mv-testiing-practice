@@ -4,7 +4,7 @@
   "description": "A starter template for vanilla JavaScript Projects",
   "main": ".eslintrc.js",
   "scripts": {
-    "lint": "npx eslint .",
+    "lint": "npx eslint . --fix",
     "test": "jest"
   },
   "repository": {
