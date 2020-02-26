@@ -7,7 +7,8 @@
     "dev": "webpack --mode development --watch",
     "build": "webpack --mode production",
     "serve": "webpack-dev-server --mode development --open",
-    "lint": "npx eslint src/ --fix"
+    "lint": "npx eslint src/ --fix",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.18.3",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "jest": "^25.1.0",
     "prettier": "^1.19.1",
     "stylelint": "^13.2.0",
     "stylelint-config-standard": "^20.0.0",
