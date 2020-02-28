@@ -10,15 +10,15 @@ const ceasar = {
     str = str.split('');
     str.forEach((val, ind) => {
       if (str[ind].match(/[a-z]/)) {
-        if (str[ind] === 'z') {
-          str[ind] = refLower[shift - 1 + ceasar.getIndex(refLower, 'a')];
+        if (ceasar.getIndex(refLower, str[ind]) >= 26 - shift) {
+          str[ind] = refLower[ind % (26 - shift)];
         } else {
           val = val.toLowerCase();
           str[ind] = refLower[shift + ceasar.getIndex(refLower, val)];
         }
       } else if (str[ind].match(/[A-Z]/)) {
-        if (str[ind] === 'Z') {
-          str[ind] = refUpper[shift - 1 + ceasar.getIndex(refUpper, 'A')];
+        if (ceasar.getIndex(refUpper, str[ind]) >= 26 - shift) {
+          str[ind] = refUpper[ind % (26 - shift)];
         } else {
           val = val.toUpperCase();
           str[ind] = refUpper[shift + ceasar.getIndex(refUpper, val)];
