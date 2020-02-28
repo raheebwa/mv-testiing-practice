@@ -21,10 +21,16 @@ test('With Shift 2, abcd should become cdef', () => {
   expect(ceasar.cipher('abcd', 2)).toBe('cdef');
 });
 
-test('With Shift 2, abcdz should become cdefb (Test Wrap)', () => {
-  expect(ceasar.cipher('abcdz', 2)).toBe('cdefb');
+test('With Shift 2, az should become cb (Test Wrap)', () => {
+  expect(ceasar.cipher('az', 2)).toBe('cb');
 });
 
-test('With Shift 2, AAbcdzZ should become CCdefbZ (Test Wrap)', () => {
-  expect(ceasar.cipher('AAbcdzZ', 2)).toBe('CCdefbB');
+
+test('With Shift 3, AZ should become CB (Test Wrap)', () => {
+  expect(ceasar.cipher('AZ', 2)).toBe('CB');
+});
+
+
+test('With Shift 3, abcdeFghijklmnopqrstuvwxyz should return defghijklmnopqrstuvwxyzabc (Can Wrap)', () => {
+  expect(ceasar.cipher('abcdeFghijklmnopqrstuvwxyz', 3)).toBe('defghIjklmnopqrstuvwxyzabc');
 });
