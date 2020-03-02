@@ -34,3 +34,7 @@ test('With Shift 3, AZ should become CB (Test Wrap)', () => {
 test('With Shift 3, abcdeFghijklmnopqrstuvwxyz should return defghijklmnopqrstuvwxyzabc (Can Wrap)', () => {
   expect(ceasar.cipher('abcdeFghijklmnopqrstuvwxyz', 3)).toBe('defghIjklmnopqrstuvwxyzabc');
 });
+
+test('Hello, World! returns Mjqqt, Ctwqi!', () => {
+  expect(ceasar.cipher('Hello, Zorld!', 5)).toBe('Mjqqt, Btwqi!');
+});

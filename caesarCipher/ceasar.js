@@ -29,9 +29,6 @@ const ceasar = {
 
     return ciphered.join('');
   },
-  decipher() {
-
-  },
 };
 
 export default ceasar;
