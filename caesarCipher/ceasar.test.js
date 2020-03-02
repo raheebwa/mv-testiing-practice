@@ -35,6 +35,12 @@ test('With Shift 3, abcdeFghijklmnopqrstuvwxyz should return defghijklmnopqrstuv
   expect(ceasar.cipher('abcdeFghijklmnopqrstuvwxyz', 3)).toBe('defghIjklmnopqrstuvwxyzabc');
 });
 
+test('3 shift', () => {
+  expect(ceasar
+    .cipher('If he had anything confidential to say.', 3))
+    .toBe('Li kh kdg dqbwklqj frqilghqwldo wr vdb.');
+});
+
 test('Hello, World! returns Mjqqt, Ctwqi!', () => {
-  expect(ceasar.cipher('Hello, Zorld!', 5)).toBe('Mjqqt, Btwqi!');
+  expect(ceasar.cipher('Hello, World!', 5)).toBe('Mjqqt, Btwqi!');
 });
