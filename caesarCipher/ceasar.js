@@ -1,36 +1,40 @@
 const refLower = 'abcdefghijklmnopqrstuvwxyz';
 const refUpper = refLower.toUpperCase();
 
-const ceasar = {
-  getIndex(arr, value) {
-    return arr.split('').indexOf(value);
+const caesar = {
+  getIndex(ref, value) {
+    return ref.indexOf(value);
   },
   cipher(str, shift = 1) {
-    const ciphered = [];
-    str = str.split('');
-    str.forEach((val, ind) => {
-      if (str[ind].match(/[a-z]/)) {
-        if (ceasar.getIndex(refLower, str[ind]) >= 26 - shift) {
-          str[ind] = refLower[ind % (26 - shift)];
-        } else {
-          val = val.toLowerCase();
-          str[ind] = refLower[shift + ceasar.getIndex(refLower, val)];
-        }
-      } else if (str[ind].match(/[A-Z]/)) {
-        if (ceasar.getIndex(refUpper, str[ind]) >= 26 - shift) {
-          str[ind] = refUpper[ind % (26 - shift)];
-        } else {
-          val = val.toUpperCase();
-          str[ind] = refUpper[shift + ceasar.getIndex(refUpper, val)];
-        }
-      }
-      ciphered.push(str[ind]);
-    });
+    let ciphered = '';
 
-    return ciphered.join('');
+    str.split('').forEach((value) => {
+      if (value.match(/[a-z]/)) {
+        const indexAtStr = caesar.getIndex(refLower, value);
+
+        if (indexAtStr + shift >= 26) {
+          ciphered += refLower[(indexAtStr + shift) % 26];
+        } else if (indexAtStr + shift < 0) {
+          ciphered += refLower[26 + indexAtStr + shift];
+        } else {
+          ciphered += refLower[shift + indexAtStr];
+        }
+      } else if (value.match(/[A-Z]/)) {
+        const indexAtStr = caesar.getIndex(refUpper, value);
+
+        if (indexAtStr + shift >= 26) {
+          ciphered += refUpper[(indexAtStr + shift) % 26];
+        } else if (indexAtStr + shift < 0) {
+          ciphered += refUpper[26 + indexAtStr + shift];
+        } else {
+          ciphered += refUpper[shift + indexAtStr];
+        }
+      } else {
+        ciphered += value;
+      }
+    });
+    return ciphered;
   },
 };
 
-export default ceasar;
-
-// console.log(ceasar.cipher('AazZ'))
+export default caesar;
