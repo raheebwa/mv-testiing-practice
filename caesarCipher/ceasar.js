@@ -10,7 +10,6 @@ const caesar = {
     let ciphered = '';
 
     str.split('').forEach((value) => {
-
       if (value.match(/[a-z]/)) { // you don't need to use str[ind]
         const indexAtAlphabet = caesar.getIndex(alphabetLowcase, value);
 
@@ -35,7 +34,6 @@ const caesar = {
           ciphered += alphabetUpcase[shift + indexAtAlphabet];
         }
       }
-
     });
 
     // you only return the string because you are changing the
@@ -46,5 +44,3 @@ const caesar = {
 };
 
 export default caesar;
-
-// console.log(caesar.cipher('AazZ', 1));
