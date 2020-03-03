@@ -9,7 +9,7 @@ const caesar = {
   cipher(str, shift = 0) {
     let ciphered = '';
 
-    str.split('').forEach((value, index) => {
+    str.split('').forEach((value) => {
 
       if (value.match(/[a-z]/)) { // you don't need to use str[ind]
         const indexAtAlphabet = caesar.getIndex(alphabetLowcase, value);
